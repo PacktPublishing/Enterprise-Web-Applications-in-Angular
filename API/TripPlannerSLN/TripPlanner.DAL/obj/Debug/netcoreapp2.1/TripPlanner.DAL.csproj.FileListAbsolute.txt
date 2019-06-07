@@ -1,0 +1,6 @@
+C:\Enterprise-Web-Applications-in-Angular\API\TripPlannerSLN\TripPlanner.DAL\bin\Debug\netcoreapp2.1\TripPlanner.DAL.deps.json
+C:\Enterprise-Web-Applications-in-Angular\API\TripPlannerSLN\TripPlanner.DAL\bin\Debug\netcoreapp2.1\TripPlanner.DAL.dll
+C:\Enterprise-Web-Applications-in-Angular\API\TripPlannerSLN\TripPlanner.DAL\obj\Debug\netcoreapp2.1\TripPlanner.DAL.csprojAssemblyReference.cache
+C:\Enterprise-Web-Applications-in-Angular\API\TripPlannerSLN\TripPlanner.DAL\obj\Debug\netcoreapp2.1\TripPlanner.DAL.csproj.CoreCompileInputs.cache
+C:\Enterprise-Web-Applications-in-Angular\API\TripPlannerSLN\TripPlanner.DAL\obj\Debug\netcoreapp2.1\TripPlanner.DAL.AssemblyInfoInputs.cache
+C:\Enterprise-Web-Applications-in-Angular\API\TripPlannerSLN\TripPlanner.DAL\obj\Debug\netcoreapp2.1\TripPlanner.DAL.AssemblyInfo.cs

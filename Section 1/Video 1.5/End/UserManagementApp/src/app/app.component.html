@@ -1,0 +1,26 @@
+<div class="jumbotron text-center">
+  <h1>User Management App</h1>   
+</div>
+<div class="container">
+  <nav class="navbar navbar-expand-sm bg-primary navbar-dark">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a [routerLink]="['/Home']" class="nav-link" routerLinkActive="active">Home
+        </a>         
+      </li>
+      <li class="nav-item">
+        <a [routerLink]="['/Users']" class="nav-link" routerLinkActive="active">Users
+        </a> 
+      </li>
+      <li class="nav-item">
+        <a [routerLink]="['/UserRegistration']" class="nav-link" routerLinkActive="active">User Registration
+        </a>
+      </li>
+      <li class="nav-item">
+          <a [routerLink]="['/AboutUs']" class="nav-link" routerLinkActive="active">About us
+          </a>
+        </li>   
+    </ul>
+  </nav>
+  <router-outlet></router-outlet>
+</div>
