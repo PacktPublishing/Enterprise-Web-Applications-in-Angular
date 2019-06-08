@@ -1,0 +1,24 @@
+<div class="card">
+  <div class="card-header"><h2>User List</h2></div>
+  <div class="card-body">      
+    <table class="table table-hover">
+      <thead>
+        <th>Name</th>
+        <th>Email</th>
+        <th></th>
+      </thead>
+      <tr *ngFor="let user of users">
+        <td>{{user.LName}}, {{user.FName}}</td>
+        <td>{{user.Email}}</td>
+        <td>
+          <a [routerLink]="['/Users', user.EmpId]">
+            Click Here
+          </a>
+        </td>
+      </tr>
+    </table>
+  </div>   
+</div>
+  
+  
+
