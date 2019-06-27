@@ -1,0 +1,15 @@
+<table>
+  <tr>
+    <td>Name</td>
+    <td><input type="text" id="name" name="name" #name /></td>
+  </tr>
+  <tr>
+    <td>email</td>
+    <td><input type="email" id="email" name="email" #email  /></td>
+  </tr>
+  <tr>
+    <td colspan="2">
+      <input type="button" (click)="CreateContact(name.value, email.value)" value="Create" id="btnSave" />
+    </td>
+  </tr>
+</table>

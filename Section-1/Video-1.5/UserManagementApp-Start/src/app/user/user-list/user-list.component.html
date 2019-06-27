@@ -11,7 +11,7 @@
         <td>{{user.LName}}, {{user.FName}}</td>
         <td>{{user.Email}}</td>
         <td>
-          <a href="#">
+          <a [routerLink]="['/Users', user.EmpId]">
             Click Here
           </a>
         </td>
