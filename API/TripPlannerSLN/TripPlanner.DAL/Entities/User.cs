@@ -1,17 +1,24 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace TripPlanner.DAL.Entities
 {
-    public class User
+    public partial class User
     {
-        public int Id { get; set; }
-        public string FName { get; set; }
-        public string MName { get; set; }
-        public string LName { get; set; }
-        public string Email { get; set; }
-        public string Password { get; set; }
+        public User()
+        {
+            UserRoles = new HashSet<UserRole>();
+            Trips = new HashSet<Trip>();
+        }
 
+        public int Id { get; set; }
+        public string Fname { get; set; }
+        public string Lname { get; set; }
+        public string Email { get; set; }
+        public string Pwd { get; set; }
+        public bool? IsActive { get; set; }
+
+        public ICollection<UserRole> UserRoles { get; set; }
+        public ICollection<Trip> Trips { get; set; }
     }
 }

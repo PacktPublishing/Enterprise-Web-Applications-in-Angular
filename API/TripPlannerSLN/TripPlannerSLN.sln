@@ -1,13 +1,17 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.28803.352
+# Visual Studio 15
+VisualStudioVersion = 15.0.28010.2003
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TripPlannerAPI", "TripPlannerAPI\TripPlannerAPI.csproj", "{C17EE5D6-4D23-43E8-B38D-DBEAD49866BB}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "01 - DAL", "01 - DAL", "{9D5C4207-9A13-4370-B962-FDC2B40E9F79}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TripPlanner.DAL", "TripPlanner.DAL\TripPlanner.DAL.csproj", "{B3EBC594-F302-4623-BD92-A0AFF8E6D26B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TripPlanner.DAL", "TripPlanner.DAL\TripPlanner.DAL.csproj", "{B3EBC594-F302-4623-BD92-A0AFF8E6D26B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "02 - Infrastructure", "02 - Infrastructure", "{632C0F48-30E9-4530-8CB4-401DBAA877B7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TripPlanner.Infrastructure", "TripPlanner.Infrastructure\TripPlanner.Infrastructure.csproj", "{1F1FE707-42D0-4E12-9B20-5546B6C8968F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,12 +27,17 @@ Global
 		{B3EBC594-F302-4623-BD92-A0AFF8E6D26B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B3EBC594-F302-4623-BD92-A0AFF8E6D26B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B3EBC594-F302-4623-BD92-A0AFF8E6D26B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1F1FE707-42D0-4E12-9B20-5546B6C8968F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1F1FE707-42D0-4E12-9B20-5546B6C8968F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1F1FE707-42D0-4E12-9B20-5546B6C8968F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1F1FE707-42D0-4E12-9B20-5546B6C8968F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{B3EBC594-F302-4623-BD92-A0AFF8E6D26B} = {9D5C4207-9A13-4370-B962-FDC2B40E9F79}
+		{1F1FE707-42D0-4E12-9B20-5546B6C8968F} = {632C0F48-30E9-4530-8CB4-401DBAA877B7}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {4D5727B1-1093-4F03-8756-24BDB3A02DDC}
