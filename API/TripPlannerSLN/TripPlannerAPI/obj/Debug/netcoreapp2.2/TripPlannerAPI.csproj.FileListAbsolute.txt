@@ -4,7 +4,9 @@ C:\Enterprise-Web-Applications-in-Angular\API\TripPlannerSLN\TripPlannerAPI\bin\
 C:\Enterprise-Web-Applications-in-Angular\API\TripPlannerSLN\TripPlannerAPI\bin\Debug\netcoreapp2.2\TripPlannerAPI.dll
 C:\Enterprise-Web-Applications-in-Angular\API\TripPlannerSLN\TripPlannerAPI\bin\Debug\netcoreapp2.2\TripPlannerAPI.pdb
 C:\Enterprise-Web-Applications-in-Angular\API\TripPlannerSLN\TripPlannerAPI\bin\Debug\netcoreapp2.2\TripPlanner.DAL.dll
+C:\Enterprise-Web-Applications-in-Angular\API\TripPlannerSLN\TripPlannerAPI\bin\Debug\netcoreapp2.2\TripPlanner.Infrastructure.dll
 C:\Enterprise-Web-Applications-in-Angular\API\TripPlannerSLN\TripPlannerAPI\bin\Debug\netcoreapp2.2\TripPlanner.DAL.pdb
+C:\Enterprise-Web-Applications-in-Angular\API\TripPlannerSLN\TripPlannerAPI\bin\Debug\netcoreapp2.2\TripPlanner.Infrastructure.pdb
 C:\Enterprise-Web-Applications-in-Angular\API\TripPlannerSLN\TripPlannerAPI\obj\Debug\netcoreapp2.2\TripPlannerAPI.csprojAssemblyReference.cache
 C:\Enterprise-Web-Applications-in-Angular\API\TripPlannerSLN\TripPlannerAPI\obj\Debug\netcoreapp2.2\TripPlannerAPI.csproj.CoreCompileInputs.cache
 C:\Enterprise-Web-Applications-in-Angular\API\TripPlannerSLN\TripPlannerAPI\obj\Debug\netcoreapp2.2\TripPlannerAPI.RazorAssemblyInfo.cache
@@ -15,5 +17,3 @@ C:\Enterprise-Web-Applications-in-Angular\API\TripPlannerSLN\TripPlannerAPI\obj\
 C:\Enterprise-Web-Applications-in-Angular\API\TripPlannerSLN\TripPlannerAPI\obj\Debug\netcoreapp2.2\TripPlannerAPI.csproj.CopyComplete
 C:\Enterprise-Web-Applications-in-Angular\API\TripPlannerSLN\TripPlannerAPI\obj\Debug\netcoreapp2.2\TripPlannerAPI.dll
 C:\Enterprise-Web-Applications-in-Angular\API\TripPlannerSLN\TripPlannerAPI\obj\Debug\netcoreapp2.2\TripPlannerAPI.pdb
-C:\Enterprise-Web-Applications-in-Angular\API\TripPlannerSLN\TripPlannerAPI\bin\Debug\netcoreapp2.2\TripPlanner.Infrastructure.dll
-C:\Enterprise-Web-Applications-in-Angular\API\TripPlannerSLN\TripPlannerAPI\bin\Debug\netcoreapp2.2\TripPlanner.Infrastructure.pdb

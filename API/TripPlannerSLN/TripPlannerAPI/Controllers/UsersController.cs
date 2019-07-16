@@ -14,6 +14,7 @@ using Microsoft.Extensions.Configuration;
 using TripPlanner.Infrastructure.Common;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
+using AutoMapper;
 
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -26,10 +27,12 @@ namespace TripPlannerAPI.Controllers
         IEnumerable<User> _users;
         private readonly IConfiguration _configuration;
         private TripPlannerDBContext _context;
-        public UsersController(IConfiguration configuration, TripPlannerDBContext context)
+        private readonly IMapper _mapper;
+        public UsersController(IConfiguration configuration, TripPlannerDBContext context, IMapper mapper)
         {
             _context = context;
             _configuration = configuration;
+            _mapper = mapper;
 
             var rolesCount = context.Roles.ToList().Count();
             var defaultRole = new Role { Name = "AppUser", Description = "Application Users" };
@@ -58,15 +61,16 @@ namespace TripPlannerAPI.Controllers
                 context.SaveChanges();
             }
 
-            
+
             _users = context.Users.Include(x => x.UserRoles).Include(x => x.Trips);
-            
+
         }
         // GET: api/<controller>
         [HttpGet]
         public ActionResult<IEnumerable<User>> Get()
         {
-            return Ok(_users.ToList());
+            var userList = _users.Select(x => _mapper.Map<UserDTO>(x));
+            return Ok(userList.ToList());
         }
 
         //// GET api/<controller>/5
@@ -92,7 +96,7 @@ namespace TripPlannerAPI.Controllers
             else
             {
                 return BadRequest();
-                
+
             }
         }
 
@@ -103,7 +107,7 @@ namespace TripPlannerAPI.Controllers
         {
             if (ModelState.IsValid)
             {
-                var appUser = await _context.Users.Include(x => x.UserRoles)                                                    
+                var appUser = await _context.Users.Include(x => x.UserRoles)
                                                     .FirstOrDefaultAsync(x => x.Email == loginDto.Username && x.Pwd == loginDto.Password);
                 if (appUser == null)
                 {
@@ -118,7 +122,7 @@ namespace TripPlannerAPI.Controllers
                 };
                 loggedInAppUser.CurrentTokenExpiry = expiry;
                 var token = GetToken(loggedInAppUser, expiry);
-                
+
                 loggedInAppUser.Token = new JwtSecurityTokenHandler().WriteToken(token);
 
                 return Ok(loggedInAppUser);
@@ -126,6 +130,13 @@ namespace TripPlannerAPI.Controllers
             return BadRequest();
         }
 
+
+        [HttpGet("{userId}/Trips")]
+        public async Task<ActionResult<Trip>> GetTripsByUser(int userId)
+        {
+            var user = await _context.Users.Include(p => p.Trips).FirstAsync(x => x.Id == userId);
+            return Ok(user.Trips);
+        }
         private JwtSecurityToken GetToken(LoggedinAppUserDTO loggedInAppUser, DateTime expiry)
         {
             

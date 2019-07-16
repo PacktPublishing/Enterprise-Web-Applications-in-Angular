@@ -1,7 +1,6 @@
 C:\Enterprise-Web-Applications-in-Angular\API\TripPlannerSLN\TripPlanner.Infrastructure\bin\Debug\netcoreapp2.1\TripPlanner.Infrastructure.deps.json
 C:\Enterprise-Web-Applications-in-Angular\API\TripPlannerSLN\TripPlanner.Infrastructure\bin\Debug\netcoreapp2.1\TripPlanner.Infrastructure.dll
 C:\Enterprise-Web-Applications-in-Angular\API\TripPlannerSLN\TripPlanner.Infrastructure\bin\Debug\netcoreapp2.1\TripPlanner.Infrastructure.pdb
-C:\Enterprise-Web-Applications-in-Angular\API\TripPlannerSLN\TripPlanner.Infrastructure\obj\Debug\netcoreapp2.1\TripPlanner.Infrastructure.csprojAssemblyReference.cache
 C:\Enterprise-Web-Applications-in-Angular\API\TripPlannerSLN\TripPlanner.Infrastructure\obj\Debug\netcoreapp2.1\TripPlanner.Infrastructure.csproj.CoreCompileInputs.cache
 C:\Enterprise-Web-Applications-in-Angular\API\TripPlannerSLN\TripPlanner.Infrastructure\obj\Debug\netcoreapp2.1\TripPlanner.Infrastructure.AssemblyInfoInputs.cache
 C:\Enterprise-Web-Applications-in-Angular\API\TripPlannerSLN\TripPlanner.Infrastructure\obj\Debug\netcoreapp2.1\TripPlanner.Infrastructure.AssemblyInfo.cs

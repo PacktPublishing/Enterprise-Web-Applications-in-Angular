@@ -32,11 +32,11 @@ namespace TripPlannerAPI.Controllers
         }
 
         // GET: api/<controller>
-        [Route("api/[controller]/{userId}")]
+       
         [HttpGet()]
-        public ActionResult<IEnumerable<Trip>> Get(int userId)
+        public ActionResult<IEnumerable<Trip>> Get()
         {
-            var allTripsForUser = _context.Trips.Where(x => x.CreatedById == userId);
+            var allTripsForUser = _context.Trips;
             return Ok(allTripsForUser);
         }
 

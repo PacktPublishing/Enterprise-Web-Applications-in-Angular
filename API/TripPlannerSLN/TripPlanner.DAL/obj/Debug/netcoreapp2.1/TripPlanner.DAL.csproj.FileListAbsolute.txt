@@ -1,11 +1,10 @@
 C:\Enterprise-Web-Applications-in-Angular\API\TripPlannerSLN\TripPlanner.DAL\bin\Debug\netcoreapp2.1\TripPlanner.DAL.deps.json
+C:\Enterprise-Web-Applications-in-Angular\API\TripPlannerSLN\TripPlanner.DAL\bin\Debug\netcoreapp2.1\TripPlanner.DAL.runtimeconfig.json
+C:\Enterprise-Web-Applications-in-Angular\API\TripPlannerSLN\TripPlanner.DAL\bin\Debug\netcoreapp2.1\TripPlanner.DAL.runtimeconfig.dev.json
 C:\Enterprise-Web-Applications-in-Angular\API\TripPlannerSLN\TripPlanner.DAL\bin\Debug\netcoreapp2.1\TripPlanner.DAL.dll
+C:\Enterprise-Web-Applications-in-Angular\API\TripPlannerSLN\TripPlanner.DAL\bin\Debug\netcoreapp2.1\TripPlanner.DAL.pdb
 C:\Enterprise-Web-Applications-in-Angular\API\TripPlannerSLN\TripPlanner.DAL\obj\Debug\netcoreapp2.1\TripPlanner.DAL.csproj.CoreCompileInputs.cache
 C:\Enterprise-Web-Applications-in-Angular\API\TripPlannerSLN\TripPlanner.DAL\obj\Debug\netcoreapp2.1\TripPlanner.DAL.AssemblyInfoInputs.cache
 C:\Enterprise-Web-Applications-in-Angular\API\TripPlannerSLN\TripPlanner.DAL\obj\Debug\netcoreapp2.1\TripPlanner.DAL.AssemblyInfo.cs
-C:\Enterprise-Web-Applications-in-Angular\API\TripPlannerSLN\TripPlanner.DAL\bin\Debug\netcoreapp2.1\TripPlanner.DAL.runtimeconfig.json
-C:\Enterprise-Web-Applications-in-Angular\API\TripPlannerSLN\TripPlanner.DAL\bin\Debug\netcoreapp2.1\TripPlanner.DAL.runtimeconfig.dev.json
-C:\Enterprise-Web-Applications-in-Angular\API\TripPlannerSLN\TripPlanner.DAL\bin\Debug\netcoreapp2.1\TripPlanner.DAL.pdb
 C:\Enterprise-Web-Applications-in-Angular\API\TripPlannerSLN\TripPlanner.DAL\obj\Debug\netcoreapp2.1\TripPlanner.DAL.dll
 C:\Enterprise-Web-Applications-in-Angular\API\TripPlannerSLN\TripPlanner.DAL\obj\Debug\netcoreapp2.1\TripPlanner.DAL.pdb
-C:\Enterprise-Web-Applications-in-Angular\API\TripPlannerSLN\TripPlanner.DAL\obj\Debug\netcoreapp2.1\TripPlanner.DAL.csprojAssemblyReference.cache

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using AutoMapper;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -13,8 +14,11 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
+using TripPlanner.DAL.Entities;
 using TripPlanner.DAL.Models;
 using TripPlanner.Infrastructure.Common;
+using TripPlannerAPI.DTOs;
+using TripPlannerAPI.Utils;
 
 namespace TripPlannerAPI
 {
@@ -31,7 +35,7 @@ namespace TripPlannerAPI
         public void ConfigureServices(IServiceCollection services)
         {
 
-
+            
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
             services.AddDbContext<TripPlannerDBContext>(options => options.UseInMemoryDatabase(databaseName: "TripPlannerDB"));
 
@@ -52,6 +56,12 @@ namespace TripPlannerAPI
 
 
            });
+
+            var config = new AutoMapper.MapperConfiguration(c => {
+                c.AddProfile(new MappingProfile());
+            });
+            var mapper = config.CreateMapper();
+            services.AddSingleton(mapper);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -62,7 +72,11 @@ namespace TripPlannerAPI
                 app.UseDeveloperExceptionPage();
             }
 
-            app.UseMvc();
+            app.UseMvc(routes =>
+            {
+                routes.MapRoute("trips", "Users/{userId}/Trips");
+                         
+            });
         }
     }
 }
