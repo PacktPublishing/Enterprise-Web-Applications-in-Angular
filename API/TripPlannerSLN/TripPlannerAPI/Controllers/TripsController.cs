@@ -29,12 +29,17 @@ namespace TripPlannerAPI.Controllers
             return Ok(allTripsForUser);
         }
 
-        //// GET api/<controller>/5
-        //[HttpGet("{id}")]
-        //public string Get(int id)
-        //{
-        //    return "value";
-        //}
+        // GET api/<controller>/5
+        [HttpGet("{id}")]
+        public ActionResult<Trip> Get(int id)
+        {
+            var trip = _context.Trips.FirstOrDefault(t => t.Id == id);
+            if (trip == null)
+            {
+                return NotFound();
+            }
+            return Ok(trip);
+        }
 
         //// POST api/<controller>
         //[HttpPost]
