@@ -12,7 +12,12 @@ namespace TripPlannerAPI.Utils
     {
         public MappingProfile()
         {
-            CreateMap<User, UserDTO>();
+            CreateMap<User, UserDTO>();            
+            CreateMap<Trip, TripDTO>();
+            CreateMap<Stay, StayDTO>();
+            CreateMap<Document, DocumentDTO>();
+            CreateMap<Address, AddressDTO>();            
+            CreateMap<WebLink, WebLinkDTO>();
         }
     }
 }

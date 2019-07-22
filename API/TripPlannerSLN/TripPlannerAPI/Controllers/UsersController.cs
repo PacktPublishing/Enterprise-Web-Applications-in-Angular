@@ -34,42 +34,13 @@ namespace TripPlannerAPI.Controllers
             _configuration = configuration;
             _mapper = mapper;
 
-            var rolesCount = context.Roles.ToList().Count();
-            var defaultRole = new Role { Name = "AppUser", Description = "Application Users" };
-            if (rolesCount == 0)
-            {
-                context.Roles.Add(defaultRole);
-                context.SaveChanges();
-            }
-
-            var length = context.Users.ToList().Count();
-            if (length == 0)
-            {
-                var defaultUser = new TripPlanner.DAL.Entities.User
-                {
-                    Email = "nitin.rastogi@live.in",
-                    Fname = "Nitin",
-                    Lname = "Rastogi",
-                    IsActive = true,
-                    Pwd = "Test123"
-                };
-                context.Users.Add(defaultUser);
-
-
-                context.SaveChanges();
-                context.UserRoles.Add(new UserRole { UserId = defaultUser.Id, RoleId = defaultRole.Id });
-                context.SaveChanges();
-            }
-
-
             _users = context.Users.Include(x => x.UserRoles).Include(x => x.Trips);
 
         }
         // GET: api/<controller>
         [HttpGet]
         public ActionResult<IEnumerable<User>> Get()
-        {
-            var userList = _users.Select(x => _mapper.Map<UserDTO>(x));
+        {            var userList = _users.Select(x => _mapper.Map<UserDTO>(x));
             return Ok(userList.ToList());
         }
 
@@ -108,7 +79,9 @@ namespace TripPlannerAPI.Controllers
             if (ModelState.IsValid)
             {
                 var appUser = await _context.Users.Include(x => x.UserRoles)
-                                                    .FirstOrDefaultAsync(x => x.Email == loginDto.Username && x.Pwd == loginDto.Password);
+                    .ThenInclude(y => y.Role) 
+                    .FirstOrDefaultAsync(x => x.Email == loginDto.Username && x.Pwd == loginDto.Password);
+
                 if (appUser == null)
                 {
                     return Unauthorized();
@@ -130,19 +103,26 @@ namespace TripPlannerAPI.Controllers
             return BadRequest();
         }
 
-
+        [Authorize]
         [HttpGet("{userId}/Trips")]
         public async Task<ActionResult<Trip>> GetTripsByUser(int userId)
         {
-            var user = await _context.Users.Include(p => p.Trips).FirstAsync(x => x.Id == userId);
-            return Ok(user.Trips);
+            var user = await _context.Users.
+                Include(p => p.Trips)
+                    .ThenInclude(t => t.Stay)
+                    .Include(t => t.Trips)
+                    .ThenInclude(t => t.Addresses)
+                .FirstAsync(x => x.Id == userId);
+                
+            return Ok(user.Trips.Select(x => _mapper.Map<TripDTO>(x)));
         }
         private JwtSecurityToken GetToken(LoggedinAppUserDTO loggedInAppUser, DateTime expiry)
         {
             
             var claims = new[]
             {
-                new Claim(JwtRegisteredClaimNames.Sub, loggedInAppUser.Email)
+                new Claim(JwtRegisteredClaimNames.Sub, loggedInAppUser.Email),
+                new Claim(ClaimTypes.Role, "AppUser")
             };
             claims.Concat(loggedInAppUser.Roles.Select(x => new Claim(ClaimTypes.Role, x)));
             var token = new JwtSecurityToken

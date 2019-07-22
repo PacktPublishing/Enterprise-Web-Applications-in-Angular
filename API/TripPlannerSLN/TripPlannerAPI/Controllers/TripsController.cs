@@ -17,18 +17,7 @@ namespace TripPlannerAPI.Controllers
         public TripsController(TripPlannerDBContext context)
         {
             _context = context;
-            var tripCount = context.Trips.ToList().Count();
-            if (tripCount == 0)
-            {
-                Trip defaultTrip = new Trip {
-                    Name = "Road Trip to East Coast",
-                    Detail = "Road trip covering Charlotte to Orlando",
-                    StartDate = DateTime.Now.AddMonths(1),
-                    CreatedById = 1
-                };
-                context.Trips.Add(defaultTrip);
-                context.SaveChanges();
-            }
+           
         }
 
         // GET: api/<controller>

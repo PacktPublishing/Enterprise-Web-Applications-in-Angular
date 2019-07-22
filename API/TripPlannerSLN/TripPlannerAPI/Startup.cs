@@ -71,7 +71,7 @@ namespace TripPlannerAPI
             {
                 app.UseDeveloperExceptionPage();
             }
-
+            app.UseAuthentication();
             app.UseMvc(routes =>
             {
                 routes.MapRoute("trips", "Users/{userId}/Trips");
