@@ -91,7 +91,8 @@ namespace TripPlannerAPI.Controllers
                 LoggedinAppUserDTO loggedInAppUser = new LoggedinAppUserDTO {
                     Name = appUser.Fname + " " + appUser.Lname,
                     Email = appUser.Email,
-                    Roles = appUser.UserRoles.Select(x => x.Role).Select(y => y.Name).ToArray()
+                    Roles = appUser.UserRoles.Select(x => x.Role).Select(y => y.Name).ToArray(),
+                    Id = appUser.Id
                 };
                 loggedInAppUser.CurrentTokenExpiry = expiry;
                 var token = GetToken(loggedInAppUser, expiry);
