@@ -62,6 +62,10 @@ namespace TripPlannerAPI.Controllers
             {
                 _context.Users.Add(user);
                 _context.SaveChanges();
+
+                _context.UserRoles.Add(new UserRole { UserId = user.Id, RoleId = 1 });
+                _context.SaveChanges();
+
                 return Ok(user);
             }
             else

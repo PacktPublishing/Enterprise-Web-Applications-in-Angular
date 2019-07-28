@@ -5,19 +5,24 @@ using Microsoft.AspNetCore.Mvc;
 using TripPlanner.DAL.Entities;
 using TripPlanner.DAL.Models;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.EntityFrameworkCore;
+using AutoMapper;
+using TripPlannerAPI.DTOs;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace TripPlannerAPI.Controllers
 {
+    [Authorize]
     [Route("api/[controller]")]   
     public class TripsController : Controller
     {
         private TripPlannerDBContext _context;
-        public TripsController(TripPlannerDBContext context)
+        private readonly IMapper _mapper;
+        public TripsController(TripPlannerDBContext context, IMapper mapper)
         {
             _context = context;
-           
+            _mapper = mapper;
         }
 
         // GET: api/<controller>
@@ -33,12 +38,12 @@ namespace TripPlannerAPI.Controllers
         [HttpGet("{id}")]
         public ActionResult<Trip> Get(int id)
         {
-            var trip = _context.Trips.FirstOrDefault(t => t.Id == id);
+            var trip = _context.Trips.Include(p => p.Stay).Include(x => x.Addresses).Include(x => x.WebLinks).FirstOrDefault(t => t.Id == id);
             if (trip == null)
             {
                 return NotFound();
             }
-            return Ok(trip);
+            return Ok(_mapper.Map<TripDTO>(trip));
         }
 
         //// POST api/<controller>

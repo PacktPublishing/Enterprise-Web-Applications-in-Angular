@@ -18,6 +18,6 @@ namespace TripPlannerAPI.DTOs
         
         public ICollection<AddressDTO> Addresses { get; set; }
         //public ICollection<DocumentDTO> Documents { get; set; }
-        //public ICollection<WebLinkDTO> WebLinks { get; set; }
+        public ICollection<WebLinkDTO> WebLinks { get; set; }
     }
 }

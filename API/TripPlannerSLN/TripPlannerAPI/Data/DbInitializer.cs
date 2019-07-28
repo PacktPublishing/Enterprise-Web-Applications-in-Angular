@@ -63,7 +63,7 @@ namespace TripPlannerAPI.Data
                 defaultTrip.StayId = defaultStay.Id;
                 context.SaveChanges();
 
-                Address address = new Address
+                Address address1 = new Address
                 {
                     Name = "Hotel Address",
                     Address1 = "2012 San Jones Rd",
@@ -74,7 +74,41 @@ namespace TripPlannerAPI.Data
                     TripId= defaultTrip.Id
                 };
 
-                context.Addresses.Add(address);
+                context.Addresses.Add(address1);
+                context.SaveChanges();
+
+                Address address2 = new Address
+                {
+                    Name = "Second Hotel Address",
+                    Address1 = "2014 San Jones Rd",
+                    Address2 = "",
+                    City = "Charlotte",
+                    State = "NC",
+                    Zip = "125487",
+                    TripId = defaultTrip.Id
+                };
+
+                context.Addresses.Add(address2);
+                context.SaveChanges();
+
+                WebLink link1 = new WebLink
+                {
+                    Name = "Hotel Address",
+                    Link="WWW.Hotel_name1.com",
+                    TripId = defaultTrip.Id
+                };
+
+                context.WebLinks.Add(link1);
+                context.SaveChanges();
+
+                WebLink link2 = new WebLink
+                {
+                    Name = "Hotel Address",
+                    Link = "WWW.Hotel_name2.com",
+                    TripId = defaultTrip.Id
+                };
+
+                context.WebLinks.Add(link2);
                 context.SaveChanges();
             }
             
