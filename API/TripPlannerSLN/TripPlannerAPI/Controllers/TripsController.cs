@@ -36,7 +36,7 @@ namespace TripPlannerAPI.Controllers
 
         // GET api/<controller>/5
         [HttpGet("{id}")]
-        public ActionResult<Trip> Get(int id)
+        public ActionResult<TripDTO> Get(int id)
         {
             var trip = _context.Trips.Include(p => p.Stay).Include(x => x.Addresses).Include(x => x.WebLinks).FirstOrDefault(t => t.Id == id);
             if (trip == null)
@@ -46,11 +46,22 @@ namespace TripPlannerAPI.Controllers
             return Ok(_mapper.Map<TripDTO>(trip));
         }
 
-        //// POST api/<controller>
-        //[HttpPost]
-        //public void Post([FromBody]string value)
-        //{
-        //}
+        // POST api/<controller>
+        [HttpPost]
+        public ActionResult<Trip> Post([FromBody]TripDTO trip)
+        {
+            if (trip.Id == 0 && !string.IsNullOrEmpty(trip.Name))
+            {
+                var tripToSave = _mapper.Map<Trip>(trip);
+                _context.Trips.Add(tripToSave);
+                _context.SaveChanges();
+                return Ok(trip);
+            }
+            else
+            {
+                return BadRequest();
+            }
+        }
 
         //// PUT api/<controller>/5
         //[HttpPut("{id}")]

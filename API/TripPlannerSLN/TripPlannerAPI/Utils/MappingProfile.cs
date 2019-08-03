@@ -14,6 +14,7 @@ namespace TripPlannerAPI.Utils
         {
             CreateMap<User, UserDTO>();            
             CreateMap<Trip, TripDTO>();
+            CreateMap<TripDTO,Trip>();
             CreateMap<Stay, StayDTO>();
             CreateMap<Document, DocumentDTO>();
             CreateMap<Address, AddressDTO>();            
