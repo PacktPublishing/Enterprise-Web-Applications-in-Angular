@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.EntityFrameworkCore;
 using AutoMapper;
 using TripPlannerAPI.DTOs;
+using Microsoft.AspNetCore.JsonPatch;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -48,14 +49,14 @@ namespace TripPlannerAPI.Controllers
 
         // POST api/<controller>
         [HttpPost]
-        public ActionResult<Trip> Post([FromBody]TripDTO trip)
+        public ActionResult<TripDTO> Post([FromBody]TripDTO trip)
         {
             if (trip.Id == 0 && !string.IsNullOrEmpty(trip.Name))
             {
                 var tripToSave = _mapper.Map<Trip>(trip);
                 _context.Trips.Add(tripToSave);
                 _context.SaveChanges();
-                return Ok(trip);
+                return Ok(_mapper.Map<TripDTO>(tripToSave));
             }
             else
             {
@@ -63,6 +64,41 @@ namespace TripPlannerAPI.Controllers
             }
         }
 
+        [HttpPut("{id}")]
+        public ActionResult<TripDTO> Put(int id, [FromBody]TripDTO tripDto)
+        {
+            var tripToUpdate = _context.Trips.FirstOrDefault(x => x.Id == id);
+            if (tripToUpdate == null)
+                return NotFound();
+            else
+            {
+                _mapper.Map(tripDto, tripToUpdate);
+                _context.SaveChanges();
+                return Ok(_mapper.Map<TripDTO>(tripToUpdate));
+            }
+        }
+
+
+        [HttpPatch("update/{id}")]
+        public ActionResult<TripDTO> Patch(int id, [FromBody]JsonPatchDocument<TripDTO> tripPatchObj)
+        {
+            var tripToUpdate = _context.Trips.FirstOrDefault(x => x.Id == id);
+            if (tripToUpdate != null)
+            {
+                var tripToUpdateDTO = _mapper.Map<TripDTO>(tripToUpdate);
+                tripPatchObj.ApplyTo(tripToUpdateDTO);
+
+                tripToUpdate = _mapper.Map(tripToUpdateDTO, tripToUpdate);
+                //_context.Trips.Attach(tripToUpdate);
+                _context.SaveChanges();
+
+                return Ok(_mapper.Map<TripDTO>(_context.Trips.FirstOrDefault(x => x.Id == id)));
+            }
+            else
+            {
+                return NotFound();
+            }
+        }
         //// PUT api/<controller>/5
         //[HttpPut("{id}")]
         //public void Put(int id, [FromBody]string value)
